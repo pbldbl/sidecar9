@@ -1,0 +1,3 @@
+#!/bin/sh
+# usage: ipad-scp src... dst   (remote paths as root@localhost:/path)
+exec scp -O -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o HostKeyAlgorithms=+ssh-rsa -o LogLevel=ERROR -i "$HOME/.ssh/id_ed25519" -P 2222 "$@"

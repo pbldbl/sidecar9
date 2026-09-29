@@ -1,0 +1,13 @@
+#!/bin/bash
+# Управление сервером второго экрана (LaunchAgent com.john.screenserve).
+#   ipad-screen          перезапустить
+#   ipad-screen stop     остановить до следующего входа в систему (виртуальный монитор исчезнет)
+#   ipad-screen start    запустить снова
+#   ipad-screen log      показать журнал
+L=com.john.screenserve; P=~/Library/LaunchAgents/$L.plist; U=gui/$(id -u)
+case "${1:-restart}" in
+  stop)    launchctl bootout $U/$L 2>/dev/null; echo "остановлен";;
+  start)   launchctl bootstrap $U "$P" 2>/dev/null || launchctl kickstart -k $U/$L; echo "запущен";;
+  log)     tail -n 30 ~/Library/Logs/screenserve.log;;
+  restart) launchctl bootstrap $U "$P" 2>/dev/null; launchctl kickstart -k $U/$L && echo "перезапущен";;
+esac

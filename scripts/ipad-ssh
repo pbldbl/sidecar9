@@ -1,0 +1,3 @@
+#!/bin/sh
+# usage: ipad-ssh 'command'   (iPad over USB via iproxy 2222 -> 22)
+exec ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o HostKeyAlgorithms=+ssh-rsa -o LogLevel=ERROR -i "$HOME/.ssh/id_ed25519" -p 2222 root@localhost "$@"

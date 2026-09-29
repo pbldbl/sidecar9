@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.john.screenserve</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Applications/ScreenServe.app/Contents/MacOS/screenserve</string>
+    <string>--port</string><string>8082</string>
+    <string>--fps</string><string>20</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>20</integer>
+  <key>ProcessType</key><string>Interactive</string>
+  <key>StandardOutPath</key><string>/Users/USER/Library/Logs/screenserve.log</string>
+  <key>StandardErrorPath</key><string>/Users/USER/Library/Logs/screenserve.log</string>
+</dict>
+</plist>
